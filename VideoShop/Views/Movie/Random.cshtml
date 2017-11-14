@@ -1,0 +1,42 @@
+﻿@model VideoShop.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies & customers</h2>
+
+<div class="row">
+    @if (!Model.Customers.Any())
+     {
+        <p>We don't have any Customer yet.</p>
+     }
+    else
+    {
+        <ul class="list-group">
+            <li class="list-group-item disabled">Customers</li>
+
+            @foreach (var cust in Model.Customers)
+            {
+                <li class="list-group-item">@Html.ActionLink(@cust.Name, "Details", "Customers", new { id = cust.Id }, null)</li>
+            }
+        </ul>
+    }
+
+    @if (!Model.Movies.Any())
+    {
+        <p>We don't have any Movie yet.</p>         
+    }
+    else
+    {
+        <ul class="list-group">
+            <li class="list-group-item disabled">Movies</li>
+
+            @foreach (var movie in Model.Movies)
+            {
+                <li class="list-group-item">@Html.ActionLink(@movie.Name, "Details", "Movie", new { id = movie.Id }, null)</li>
+            }
+        </ul>
+    }
+</div>
+

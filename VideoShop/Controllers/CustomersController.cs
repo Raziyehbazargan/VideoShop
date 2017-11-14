@@ -26,7 +26,7 @@ namespace VideoShop.Controllers
             return View(customer);
         }
         // a list of customers
-        private IEnumerable<Customer> GetCustomers()
+        public IEnumerable<Customer> GetCustomers()
         {
             return new List<Customer>
             {

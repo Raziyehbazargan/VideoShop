@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VideoShop.Models;
+using VideoShop.ViewModels;
 
 namespace VideoShop.Controllers
 {
@@ -33,6 +34,20 @@ namespace VideoShop.Controllers
                 new Movie {Id = 100, Name = "Friends"},
                 new Movie {Id = 200, Name = "Fosters"},
             };
+        }
+
+        // GET: Movies/Random
+        public ActionResult Random()
+        {
+            CustomersController cust = new CustomersController();
+            var customerList =  cust.GetCustomers().ToList();
+            RandomMovieViewModel viewModel = new RandomMovieViewModel()
+            {
+                Movies = GetMovies().ToList(),
+                Customers = customerList
+            };   
+            
+            return View(viewModel);
         }
 
     }
