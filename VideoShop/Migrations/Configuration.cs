@@ -9,7 +9,7 @@ namespace VideoShop.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(VideoShop.Models.ApplicationDbContext context)
