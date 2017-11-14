@@ -1,0 +1,26 @@
+﻿@model IEnumerable<VideoShop.Models.Movie>
+
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+<div class="row">
+    @if (!Model.Any())
+    {
+        <p>We don't have any Movies yet.</p>
+    }
+    else
+    {
+        <ul class="list-group">
+            <li class="list-group-item disabled">Customer</li>
+
+            @foreach (var movie in Model)
+            {
+                <li class="list-group-item">@Html.ActionLink(@movie.Name, "Details", "Movie", new { id = movie.Id }, null)</li>
+            }
+        </ul>
+    }
+</div>
+
