@@ -13,14 +13,23 @@
     }
     else
     {
-        <ul class="list-group">
-            <li class="list-group-item disabled">Movie</li>
-
+        <table class="table table-hover table-responsive table-bordered">
+            <thead>
+            <tr>
+                <th>Movie</th>
+                <th>Genre</th>
+            </tr>
+            </thead>
+            <tbody>
             @foreach (var movie in Model)
             {
-                <li class="list-group-item">@Html.ActionLink(@movie.Name, "Details", "Movie", new { id = movie.Id }, null)</li>
+                <tr>
+                    <td>@Html.ActionLink(@movie.Name, "Details", "Movie", new { id = movie.Id }, null)</td>
+                    <td>@movie.GenreType.Name</td>
+                </tr>
             }
-        </ul>
+            </tbody>
+        </table>
     }
 </div>
 
