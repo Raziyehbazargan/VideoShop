@@ -205,9 +205,18 @@
     <Compile Include="Migrations\201711150617050_PopulateMembershipTypes.Designer.cs">
       <DependentUpon>201711150617050_PopulateMembershipTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711151938217_ModifyMovieModel.cs" />
+    <Compile Include="Migrations\201711151938217_ModifyMovieModel.Designer.cs">
+      <DependentUpon>201711151938217_ModifyMovieModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711151939320_PopulateGenreTypes1.cs" />
+    <Compile Include="Migrations\201711151939320_PopulateGenreTypes1.Designer.cs">
+      <DependentUpon>201711151939320_PopulateGenreTypes1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\GenreType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -239,7 +248,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -301,6 +312,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711150617050_PopulateMembershipTypes.resx">
       <DependentUpon>201711150617050_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711151938217_ModifyMovieModel.resx">
+      <DependentUpon>201711151938217_ModifyMovieModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711151939320_PopulateGenreTypes1.resx">
+      <DependentUpon>201711151939320_PopulateGenreTypes1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
