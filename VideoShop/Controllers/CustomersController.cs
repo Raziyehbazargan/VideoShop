@@ -32,7 +32,7 @@ namespace VideoShop.Controllers
 
         public ActionResult Details(int id)
         {
-            var customer = _context.Customers.FirstOrDefault(c => c.Id == id);
+            var customer = _context.Customers.Include(c => c.MembershipType).FirstOrDefault(c => c.Id == id);
             if (customer == null)
             {
                 return HttpNotFound();

@@ -197,21 +197,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711142252504_InitialModels.cs" />
-    <Compile Include="Migrations\201711142252504_InitialModels.Designer.cs">
-      <DependentUpon>201711142252504_InitialModels.cs</DependentUpon>
+    <Compile Include="Migrations\201711150615009_InitilaModels.cs" />
+    <Compile Include="Migrations\201711150615009_InitilaModels.Designer.cs">
+      <DependentUpon>201711150615009_InitilaModels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711142254110_populateMembershipTypes.cs" />
-    <Compile Include="Migrations\201711142254110_populateMembershipTypes.Designer.cs">
-      <DependentUpon>201711142254110_populateMembershipTypes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711142317459_populateDataFromDB.cs" />
-    <Compile Include="Migrations\201711142317459_populateDataFromDB.Designer.cs">
-      <DependentUpon>201711142317459_populateDataFromDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711142354151_updateMembershipType.cs" />
-    <Compile Include="Migrations\201711142354151_updateMembershipType.Designer.cs">
-      <DependentUpon>201711142354151_updateMembershipType.cs</DependentUpon>
+    <Compile Include="Migrations\201711150617050_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201711150617050_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201711150617050_PopulateMembershipTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -304,17 +296,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711142252504_InitialModels.resx">
-      <DependentUpon>201711142252504_InitialModels.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711150615009_InitilaModels.resx">
+      <DependentUpon>201711150615009_InitilaModels.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711142254110_populateMembershipTypes.resx">
-      <DependentUpon>201711142254110_populateMembershipTypes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711142317459_populateDataFromDB.resx">
-      <DependentUpon>201711142317459_populateDataFromDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711142354151_updateMembershipType.resx">
-      <DependentUpon>201711142354151_updateMembershipType.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711150617050_PopulateMembershipTypes.resx">
+      <DependentUpon>201711150617050_PopulateMembershipTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

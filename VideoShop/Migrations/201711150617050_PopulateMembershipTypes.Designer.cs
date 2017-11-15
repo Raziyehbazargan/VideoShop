@@ -7,18 +7,18 @@ namespace VideoShop.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class updateMembershipType : IMigrationMetadata
+    public sealed partial class PopulateMembershipTypes : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updateMembershipType));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PopulateMembershipTypes));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711142354151_updateMembershipType"; }
+            get { return "201711150617050_PopulateMembershipTypes"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target
