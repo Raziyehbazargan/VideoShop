@@ -27,18 +27,25 @@ namespace VideoShop.Controllers
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
-            var viewModel = new NewCustomerViewModel
+            var viewModel = new CustomerFormViewModel
             {
                 MembershipTypes = membershipTypes
             };
-            return View(viewModel);
+
+            return View("CustomerForm", viewModel);
         }
         [HttpPost]
         public ActionResult Create(Customer customer)
         {
+            if (customer == null)
+            {
+                return Content("No Customer");
+
+            }
+
             _context.Customers.Add(customer);
             _context.SaveChanges();
-            return RedirectToAction("Index","Customers");
+            return RedirectToAction("Index", "Customers");
         }
 
         // GET: Customers
@@ -57,14 +64,20 @@ namespace VideoShop.Controllers
             }
             return View(customer);
         }
-        // a list of customers
-        /*public IEnumerable<Customer> GetCustomers()
+
+        public ActionResult Edit(int id)
         {
-            return new List<Customer>
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            if (customer == null)
             {
-                new Customer {Id = 1, Name = "Sarah"},
-                new Customer {Id = 2, Name = "David"}
+                return HttpNotFound();
+            }
+            var viewModel = new CustomerFormViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
             };
-         }*/
+            return View("CustomerForm", viewModel);
+        }
     }
 }
