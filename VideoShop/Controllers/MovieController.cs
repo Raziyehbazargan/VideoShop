@@ -10,6 +10,18 @@ namespace VideoShop.Controllers
 {
     public class MovieController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public MovieController()
+        {
+            //_context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            //_context.Dispose();
+        }
+
         // GET: Movie
         public ActionResult Index()
         {
@@ -18,7 +30,7 @@ namespace VideoShop.Controllers
         }
         public ActionResult Details(int id)
         {
-            var movie = GetMovies().FirstOrDefault(m => m.Id == id);
+            var movie =  GetMovies().FirstOrDefault(m => m.Id == id);
             if (movie == null)
             {
                 return HttpNotFound();
@@ -39,15 +51,13 @@ namespace VideoShop.Controllers
         // GET: Movies/Random
         public ActionResult Random()
         {
-            CustomersController cust = new CustomersController();
-            var customerList =  cust.GetCustomers().ToList();
-            RandomMovieViewModel viewModel = new RandomMovieViewModel()
+            /*RandomMovieViewModel viewModel = new RandomMovieViewModel()
             {
-                Movies = GetMovies().ToList(),
-                Customers = customerList
-            };   
-            
-            return View(viewModel);
+                Movies = _context.Movies.ToList(),
+                Customers = _context.Customers.ToList()
+            };   */
+
+            return View();
         }
 
     }
