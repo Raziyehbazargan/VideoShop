@@ -10,7 +10,7 @@ namespace VideoShop.Controllers
 {
     public class MovieController : Controller
     {
-        private ApplicationDbContext _context;
+        //private ApplicationDbContext _context;
 
         public MovieController()
         {

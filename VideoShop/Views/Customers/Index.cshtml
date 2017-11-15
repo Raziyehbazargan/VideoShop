@@ -13,13 +13,22 @@
     }
     else
     {
-        <ul class="list-group">
-            <li class="list-group-item disabled">Customer</li>
-
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Discount Rate</th>
+            </tr>
+            </thead>
+            <tbody>
             @foreach (var cust in Model)
-            {
-                <li class="list-group-item">@Html.ActionLink(@cust.Name, "Details", "Customers", new { id = cust.Id }, null)</li>
-            }
-        </ul>
+             {
+                 <tr>
+                     <td class="list-group-item">@Html.ActionLink(@cust.Name, "Details", "Customers", new { id = cust.Id }, null)</td>
+                     <td>@cust.MembershipType.Name</td>
+                 </tr>
+             }
+            </tbody>
+        </table>
     }
 </div>
