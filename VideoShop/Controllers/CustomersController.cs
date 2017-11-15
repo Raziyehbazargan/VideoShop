@@ -35,16 +35,23 @@ namespace VideoShop.Controllers
             return View("CustomerForm", viewModel);
         }
         [HttpPost]
-        public ActionResult Create(Customer customer)
+        public ActionResult Save(Customer customer)
         {
-            if (customer == null)
+            // Add new Customer
+            if (customer.Id == 0)
             {
-                return Content("No Customer");
-
+                _context.Customers.Add(customer);
             }
-
-            _context.Customers.Add(customer);
+            else // Or Update a Excising customer
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+                customerInDb.Name = customer.Name;
+                customerInDb.Birthdate = customer.Birthdate;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+            }
             _context.SaveChanges();
+
             return RedirectToAction("Index", "Customers");
         }
 
