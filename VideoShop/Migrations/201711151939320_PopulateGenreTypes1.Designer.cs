@@ -7,13 +7,13 @@ namespace VideoShop.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class populateDataFromDB : IMigrationMetadata
+    public sealed partial class PopulateGenreTypes1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(populateDataFromDB));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PopulateGenreTypes1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711142317459_populateDataFromDB"; }
+            get { return "201711151939320_PopulateGenreTypes1"; }
         }
         
         string IMigrationMetadata.Source

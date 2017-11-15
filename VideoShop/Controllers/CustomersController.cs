@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VideoShop.Models;
+using VideoShop.ViewModels;
 
 namespace VideoShop.Controllers
 {
@@ -23,6 +24,16 @@ namespace VideoShop.Controllers
             _context.Dispose();
         }
 
+        public ActionResult New()
+        {
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                MembershipTypes = membershipTypes
+            };
+            return View(viewModel);
+        }
+
         // GET: Customers
         public ActionResult Index()
         {
@@ -32,7 +43,7 @@ namespace VideoShop.Controllers
 
         public ActionResult Details(int id)
         {
-            var customer = _context.Customers.FirstOrDefault(c => c.Id == id);
+            var customer = _context.Customers.Include(c => c.MembershipType).FirstOrDefault(c => c.Id == id);
             if (customer == null)
             {
                 return HttpNotFound();

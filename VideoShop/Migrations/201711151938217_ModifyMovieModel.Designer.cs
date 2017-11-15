@@ -7,13 +7,13 @@ namespace VideoShop.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class InitialModels : IMigrationMetadata
+    public sealed partial class ModifyMovieModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialModels));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ModifyMovieModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711142252504_InitialModels"; }
+            get { return "201711151938217_ModifyMovieModel"; }
         }
         
         string IMigrationMetadata.Source

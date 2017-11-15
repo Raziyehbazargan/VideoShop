@@ -3,7 +3,7 @@ namespace VideoShop.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class populateDataFromDB : DbMigration
+    public partial class InitilaModels : DbMigration
     {
         public override void Up()
         {
