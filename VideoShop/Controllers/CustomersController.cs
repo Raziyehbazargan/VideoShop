@@ -29,6 +29,7 @@ namespace VideoShop.Controllers
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(),
                 MembershipTypes = membershipTypes
             };
             ViewBag.Title = "New Customer";
