@@ -37,6 +37,7 @@ namespace VideoShop.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             // using "ModelState.IsValid", it will check if this customer object is valid base on data annotations applied on Customer model properties
