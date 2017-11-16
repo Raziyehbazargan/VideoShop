@@ -34,15 +34,29 @@ namespace VideoShop.Controllers
             ViewBag.Title = "New Customer";
             return View("CustomerForm", viewModel);
         }
+
         [HttpPost]
         public ActionResult Save(Customer customer)
         {
+            // using "ModelState.IsValid", it will check if this customer object is valid base on data annotations applied on Customer model properties
+            //if it's not valid, return the same view
+            if (!ModelState.IsValid)
+            {
+                CustomerFormViewModel viewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()
+                };
+
+                return View("CustomerForm", viewModel);
+            }
+
             // Add new Customer
             if (customer.Id == 0)
             {
                 _context.Customers.Add(customer);
             }
-            else // Or Update a Excising customer
+            else // Or Update an excising customer
             {
                 var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
                 customerInDb.Name = customer.Name;
@@ -50,6 +64,7 @@ namespace VideoShop.Controllers
                 customerInDb.MembershipTypeId = customer.MembershipTypeId;
                 customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
             }
+
             _context.SaveChanges();
             return RedirectToAction("Index", "Customers");
         }
