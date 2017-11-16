@@ -18,8 +18,8 @@ namespace VideoShop.Models
         public DateTime Created { get; set; } = DateTime.Now;
 
         [Display(Name = "In Stock")]
+        [Range(1,100)]
         public int InStock { get; set; }
-
 
         public GenreType GenreType { get; set; }
 
