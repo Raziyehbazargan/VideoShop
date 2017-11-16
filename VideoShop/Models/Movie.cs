@@ -10,6 +10,7 @@ namespace VideoShop.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public String Name { get; set; }
 
         [Display(Name= "Release Date")]
@@ -18,14 +19,12 @@ namespace VideoShop.Models
         public DateTime Created { get; set; } = DateTime.Now;
 
         [Display(Name = "In Stock")]
-        public int InStock { get; set; }
-
+        [Range(1,20)]
+        public byte InStock { get; set; }
 
         public GenreType GenreType { get; set; }
 
         [Display(Name = "Genre Type")]
         public byte GenreTypeId { get; set; }
-
-
     }
 }

@@ -29,6 +29,7 @@ namespace VideoShop.Controllers
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(),
                 MembershipTypes = membershipTypes
             };
             ViewBag.Title = "New Customer";
@@ -36,6 +37,7 @@ namespace VideoShop.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             // using "ModelState.IsValid", it will check if this customer object is valid base on data annotations applied on Customer model properties

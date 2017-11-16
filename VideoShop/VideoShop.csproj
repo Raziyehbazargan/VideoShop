@@ -213,6 +213,18 @@
     <Compile Include="Migrations\201711151939320_PopulateGenreTypes1.Designer.cs">
       <DependentUpon>201711151939320_PopulateGenreTypes1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711162001183_changeInStockType.cs" />
+    <Compile Include="Migrations\201711162001183_changeInStockType.Designer.cs">
+      <DependentUpon>201711162001183_changeInStockType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711162006534_MakeMovieNamePropertyRequired.cs" />
+    <Compile Include="Migrations\201711162006534_MakeMovieNamePropertyRequired.Designer.cs">
+      <DependentUpon>201711162006534_MakeMovieNamePropertyRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711162050283_UpdateMovieViewModel.cs" />
+    <Compile Include="Migrations\201711162050283_UpdateMovieViewModel.Designer.cs">
+      <DependentUpon>201711162050283_UpdateMovieViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -220,6 +232,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsIfMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -233,7 +246,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -322,6 +335,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711151939320_PopulateGenreTypes1.resx">
       <DependentUpon>201711151939320_PopulateGenreTypes1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711162001183_changeInStockType.resx">
+      <DependentUpon>201711162001183_changeInStockType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711162006534_MakeMovieNamePropertyRequired.resx">
+      <DependentUpon>201711162006534_MakeMovieNamePropertyRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711162050283_UpdateMovieViewModel.resx">
+      <DependentUpon>201711162050283_UpdateMovieViewModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -23,7 +23,7 @@
         </ul>
     }
 
-    @if (!Model.Movies.Any())
+    @if (!Model.s.Any())
     {
         <p>We don't have any Movie yet.</p>         
     }
@@ -32,7 +32,7 @@
         <ul class="list-group">
             <li class="list-group-item disabled">Movies</li>
 
-            @foreach (var movie in Model.Movies)
+            @foreach (var movie in Model.s)
             {
                 <li class="list-group-item">@Html.ActionLink(@movie.Name, "Details", "Movie", new { id = movie.Id }, null)</li>
             }

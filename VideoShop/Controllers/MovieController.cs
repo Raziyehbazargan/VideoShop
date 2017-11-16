@@ -25,13 +25,11 @@ namespace VideoShop.Controllers
 
         public ActionResult New()
         {
-            var genreTypes = _context.GenreTypes.ToList();
             MovieFormViewModel viewModel = new MovieFormViewModel
-            {
-                GenreTypes = genreTypes
+            {               
+                GenreTypes = _context.GenreTypes.ToList()
             };
 
-            ViewBag.Title = "New Movie";
             return View("MovieForm", viewModel);
         }
         // GET: Movie
@@ -70,20 +68,28 @@ namespace VideoShop.Controllers
             {
                 return HttpNotFound();
             }
-            MovieFormViewModel viewModel = new MovieFormViewModel
+            MovieFormViewModel viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movie,
                 GenreTypes = _context.GenreTypes.ToList()
             };
-
-            ViewBag.Title = "Edit Movie";
 
             return View("MovieForm", viewModel);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                MovieFormViewModel viewModel = new MovieFormViewModel(movie)
+                {
+                    GenreTypes = _context.GenreTypes.ToList()
+                };
+
+                return View("MovieForm", viewModel);
+            }
+
             if (movie.Id == 0)
             {
                 _context.Movies.Add(movie);
