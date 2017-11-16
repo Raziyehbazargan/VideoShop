@@ -23,15 +23,26 @@ namespace VideoShop.Controllers
             _context.Dispose();
         }
 
+        public ActionResult New()
+        {
+            var genreTypes = _context.GenreTypes.ToList();
+            MovieFormViewModel viewModel = new MovieFormViewModel
+            {
+                GenreTypes = genreTypes
+            };
+
+            ViewBag.Title = "New Movie";
+            return View("MovieForm", viewModel);
+        }
         // GET: Movie
         public ActionResult Index()
         {
-            var movies = _context.Movies.Include(g => g.GenreType);
+            IEnumerable<Movie> movies = _context.Movies.Include(g => g.GenreType);
             return View(movies);
         }
         public ActionResult Details(int id)
         {
-            var movie =  _context.Movies.Include(g => g.GenreType).FirstOrDefault(m => m.Id == id);
+            Movie movie =  _context.Movies.Include(g => g.GenreType).FirstOrDefault(m => m.Id == id);
             if (movie == null)
             {
                 return HttpNotFound();
@@ -39,15 +50,6 @@ namespace VideoShop.Controllers
 
             return View(movie);
         }
-
-        /*private IEnumerable<Movie> GetMovies()
-        {
-            return new List<Movie>
-            {
-                new Movie {Id = 100, Name = "Friends"},
-                new Movie {Id = 200, Name = "Fosters"},
-            };
-        }*/
 
         // GET: Movies/Random
         public ActionResult Random()
@@ -61,5 +63,45 @@ namespace VideoShop.Controllers
             return View();
         }
 
+        public ActionResult Edit(int id)
+        {
+            Movie movie = _context.Movies.Single(m => m.Id == id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+            MovieFormViewModel viewModel = new MovieFormViewModel
+            {
+                Movie = movie,
+                GenreTypes = _context.GenreTypes.ToList()
+            };
+
+            ViewBag.Title = "Edit Movie";
+
+            return View("MovieForm", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+            {
+                _context.Movies.Add(movie);
+            }
+            else
+            {
+                Movie movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+                if (movieInDb == null)
+                {
+                    return HttpNotFound();
+                }
+                movieInDb.Name = movie.Name;
+                movieInDb.GenreTypeId = movie.GenreTypeId;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+                movieInDb.InStock = movie.InStock;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Movie");
+        }
     }
 }
