@@ -28,6 +28,7 @@ namespace VideoShop.Controllers
             var genreTypes = _context.GenreTypes.ToList();
             MovieFormViewModel viewModel = new MovieFormViewModel
             {
+                Movie = new Movie(),
                 GenreTypes = genreTypes
             };
 
@@ -82,8 +83,20 @@ namespace VideoShop.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                MovieFormViewModel viewModel = new MovieFormViewModel
+                {
+                    Movie = movie,
+                    GenreTypes = _context.GenreTypes.ToList()
+                };
+
+                return View("MovieForm", viewModel);
+            }
+
             if (movie.Id == 0)
             {
                 _context.Movies.Add(movie);

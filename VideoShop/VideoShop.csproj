@@ -213,6 +213,14 @@
     <Compile Include="Migrations\201711151939320_PopulateGenreTypes1.Designer.cs">
       <DependentUpon>201711151939320_PopulateGenreTypes1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711162001183_changeInStockType.cs" />
+    <Compile Include="Migrations\201711162001183_changeInStockType.Designer.cs">
+      <DependentUpon>201711162001183_changeInStockType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711162006534_MakeMovieNamePropertyRequired.cs" />
+    <Compile Include="Migrations\201711162006534_MakeMovieNamePropertyRequired.Designer.cs">
+      <DependentUpon>201711162006534_MakeMovieNamePropertyRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -323,6 +331,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711151939320_PopulateGenreTypes1.resx">
       <DependentUpon>201711151939320_PopulateGenreTypes1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711162001183_changeInStockType.resx">
+      <DependentUpon>201711162001183_changeInStockType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711162006534_MakeMovieNamePropertyRequired.resx">
+      <DependentUpon>201711162006534_MakeMovieNamePropertyRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
