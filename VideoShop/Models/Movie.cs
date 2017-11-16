@@ -26,7 +26,5 @@ namespace VideoShop.Models
 
         [Display(Name = "Genre Type")]
         public byte GenreTypeId { get; set; }
-
-
     }
 }
