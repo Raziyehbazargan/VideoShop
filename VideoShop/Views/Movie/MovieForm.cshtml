@@ -1,11 +1,10 @@
 ﻿@model VideoShop.ViewModels.MovieFormViewModel
 @{
-    ViewBag.Title = "New";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
-<h2>New Movie</h2>
+<h2>@ViewBag.Title</h2>
 @using (@Html.BeginForm("Save", "Movie"))
  {
      <div class="form-group">

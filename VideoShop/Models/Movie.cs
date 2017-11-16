@@ -15,7 +15,7 @@ namespace VideoShop.Models
         [Display(Name= "Release Date")]
         public DateTime ReleaseDate { get; set; }
 
-        public DateTime Created { get; set; }
+        public DateTime Created { get; set; } = DateTime.Now;
 
         [Display(Name = "In Stock")]
         public int InStock { get; set; }

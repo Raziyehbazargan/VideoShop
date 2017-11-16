@@ -30,6 +30,8 @@ namespace VideoShop.Controllers
             {
                 GenreTypes = genreTypes
             };
+
+            ViewBag.Title = "New Movie";
             return View("MovieForm", viewModel);
         }
         // GET: Movie
@@ -73,6 +75,9 @@ namespace VideoShop.Controllers
                 Movie = movie,
                 GenreTypes = _context.GenreTypes.ToList()
             };
+
+            ViewBag.Title = "Edit Movie";
+
             return View("MovieForm", viewModel);
         }
 

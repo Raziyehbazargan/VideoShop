@@ -31,7 +31,7 @@ namespace VideoShop.Controllers
             {
                 MembershipTypes = membershipTypes
             };
-
+            ViewBag.Title = "New Customer";
             return View("CustomerForm", viewModel);
         }
         [HttpPost]
@@ -51,7 +51,6 @@ namespace VideoShop.Controllers
                 customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
             }
             _context.SaveChanges();
-
             return RedirectToAction("Index", "Customers");
         }
 
@@ -84,6 +83,8 @@ namespace VideoShop.Controllers
                 Customer = customer,
                 MembershipTypes = _context.MembershipTypes.ToList()
             };
+
+            ViewBag.Title = "Edit Customer";
             return View("CustomerForm", viewModel);
         }
     }
