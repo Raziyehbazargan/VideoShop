@@ -1,0 +1,29 @@
+﻿@model VideoShop.ViewModels.MovieFormViewModel
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>New Movie</h2>
+@using (@Html.BeginForm("Save", "Movie"))
+ {
+     <div class="form-group">
+         @Html.LabelFor(m => m.Movie.Name)
+         @Html.TextBoxFor(m => m.Movie.Name, new {@class="form-control"})
+     </div>
+     <div class="form-group">
+         @Html.LabelFor(m => m.Movie.ReleaseDate)
+         @Html.TextBoxFor(m => m.Movie.ReleaseDate, new { @class = "form-control" })
+     </div>
+     <div class="form-group">
+         @Html.LabelFor(m => m.Movie.GenreTypeId)
+         @Html.DropDownListFor(m => m.Movie.GenreTypeId, new SelectList(Model.GenreTypes, "Id", "Name"),"", new {@class="form-control"})
+     </div>
+     <div class="form-group">
+         @Html.LabelFor(m => m.Movie.InStock)
+         @Html.TextBoxFor(m => m.Movie.InStock, new { @class = "form-control" })
+     </div>
+     @Html.HiddenFor(m => m.Movie.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+ }
