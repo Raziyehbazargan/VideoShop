@@ -1,5 +1,5 @@
-﻿@model IEnumerable<VideoShop.Models.Customer>
-
+﻿@model PagedList.IPagedList<VideoShop.Models.Customer>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Customers";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,14 +7,17 @@
 
 <h2>Customers</h2>
 <div class="row">
+    <p>
+        @Html.ActionLink("New Customer","New","Customers", new {@class="btn btn-primary"})
+    </p>
+</div>
+<div class="row">
     @if (!Model.Any())
     {
         <p>We don't have any customers yet.</p>
     }
     else
     {
-        @Html.ActionLink("New Customer","New","Customers", new {@class="btn btn-primary"})
-
         <table class="table table-bordered table-hover table-responsive">
             <thead>
             <tr>
@@ -32,5 +35,8 @@
             }
             </tbody>
         </table>
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", 
+            new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
     }
 </div>
