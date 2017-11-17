@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using VideoShop.Models;
 using VideoShop.ViewModels;
+using PagedList;
 
 namespace VideoShop.Controllers
 {
@@ -22,6 +23,29 @@ namespace VideoShop.Controllers
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
+        }
+
+        // GET: Customers
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
+        {
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.currentSort = sortOrder;
+            ViewBag.currentFilter = searchString;
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+
+
+            return View(customers.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult New()
@@ -69,13 +93,6 @@ namespace VideoShop.Controllers
 
             _context.SaveChanges();
             return RedirectToAction("Index", "Customers");
-        }
-
-        // GET: Customers
-        public ActionResult Index()
-        {
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList(); 
-            return View(customers);
         }
 
         public ActionResult Details(int id)
