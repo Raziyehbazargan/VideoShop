@@ -18,7 +18,7 @@
     }
     else
     {
-        <table class="table table-bordered table-hover table-responsive">
+        <table id="customers" class="table table-bordered table-hover table-responsive">
             <thead>
             <tr>
                 <th>Customer</th>
@@ -31,6 +31,9 @@
                 <tr>
                     <td>@Html.ActionLink(@cust.Name, "Edit", "Customers", new { id = cust.Id }, null)</td>
                     <td>@cust.MembershipType.Name</td>
+                    <td>
+                        <button data-customer-id="@cust.Id" class="btn-link js-delete">Delete</button>
+                    </td>
                 </tr>
             }
             </tbody>
@@ -40,3 +43,20 @@
             new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
     }
 </div>
+@section scripts 
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#customers .js-delete").on("click", function () {
+                var button = $(this);
+                $.ajax({
+                    url: "api/customers/" + button.attr("data-customer-id"),
+                    method: "DELETE",
+                    success: function () {
+                        button.parents("tr").remove();
+                    }
+                })
+            });
+        });
+    </script>
+}
