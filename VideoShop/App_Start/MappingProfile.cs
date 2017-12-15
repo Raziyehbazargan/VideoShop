@@ -16,6 +16,7 @@ namespace VideoShop.App_Start
             {
                 cfg.CreateMap<Customer, CustomerDto>();
                 cfg.CreateMap<CustomerDto, Customer>();
+                cfg.CreateMap<MembershipType, MembershipTypeDto>();
             });
         }
     }
