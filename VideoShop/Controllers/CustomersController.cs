@@ -26,26 +26,10 @@ namespace VideoShop.Controllers
         }
 
         // GET: Customers
-        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
+        public ActionResult Index()
         {
             var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-
-            if (searchString != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
-
-            ViewBag.currentSort = sortOrder;
-            ViewBag.currentFilter = searchString;
-            int pageSize = 3;
-            int pageNumber = (page ?? 1);
-
-
-            return View(customers.ToPagedList(pageNumber, pageSize));
+            return View();
         }
 
         public ActionResult New()

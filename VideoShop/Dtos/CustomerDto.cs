@@ -21,5 +21,7 @@ namespace VideoShop.Dtos
         public bool IsSubscribedToNewsletter { get; set; }
 
         public byte MembershipTypeId { get; set; } // foreign key
+        public MembershipType MembershipType { get; set; } // foreign key
+
     }
 }
